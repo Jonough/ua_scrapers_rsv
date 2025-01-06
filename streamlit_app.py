@@ -130,9 +130,9 @@ else:
         rsv_list.drop('RSV Date', axis=1, inplace=True)
 
         # Main Download for future use, pickle format preserves data types and handles None values appropriately
-        rsv_file_name = rsv_date.strftime('%d%m%y.pkl')
-        st.download_button('Download Entire Reserve List', data=pickle.dumps(rsv_list),
-                           file_name=f'RSV_{rsv_file_name}')
+        rsv_date_string = rsv_date.strftime('%d%m%y')
+        st.download_button('Download Entire Reserve List', data=pickle.dumps(st.session_state.rsv_list),
+                           file_name=f'RSV_{rsv_date_string}.pkl')
 
         # CSV Download option
         # st.download_button('Download Entire Reserve List as CSV', data=rsv_list.to_csv(index=True),
