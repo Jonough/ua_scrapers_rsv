@@ -77,11 +77,15 @@ if ('rsv_form' not in st.session_state) and ('rsv_list' not in st.session_state)
 
                     # Check to see if the imported DF is in the correct format
                     if (set(RSV_DF_FORMAT).issubset(rsv.columns)):
-                        st.session_state.rsv_list = rsv
-                        st.rerun()
+                            st.session_state.rsv_list = rsv
+                    else:
+                        st.write('The file is in the incorrect format, please select another file!')
                 except:
-                    st.write(
-                        'Issue reading the file! Please select another file.')
+                    st.write('Issue reading the file! Please select another file.')
+
+                # If there were no errors and we have a list, rerun the script
+                if 'rsv_list' in st.session_state:
+                    st.rerun()
             else:
                 # No file, so check if the form data is valid
                 # If all selected, fill in selected bases
