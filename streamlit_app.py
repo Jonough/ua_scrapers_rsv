@@ -10,7 +10,7 @@ from ua_scrapers_ref import *
 # Streamlit Config
 
 st.set_page_config(
-    page_title='UA Scrapers Rsv', layout='centered')  # Alternatively 'wide'
+    page_title='UA Scrapers Rsv', layout='wide')  # Alternatively 'wide'
 st.logo(
     image='SSCLogoLowRes.png',
     size='large')
